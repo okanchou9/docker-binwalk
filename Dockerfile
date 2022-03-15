@@ -8,11 +8,14 @@ RUN apt-get update -y; \
  apt-get install -y \
  wget \
  curl \
- python \
+ python3 \
+ python3-pip \
  xvfb \
  git;
 
-RUN git clone https://github.com/devttys0/binwalk.git /binwalk; \
+RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
+
+RUN git clone https://github.com/ReFirmLabs/binwalk.git /binwalk; \
  cd /binwalk; \
  python setup.py install; \
  yes | ./deps.sh;

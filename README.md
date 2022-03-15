@@ -15,5 +15,6 @@ Just modified the original script to support latest Binwalk and Python3.
 ```shell
 $ git clone https://github.com/okanchou9/docker-binwalk.git && cd docker-binwalk
 $ docker build -t binwalk:latest . --no-cache
-$ docker run -it --rm -v "$(pwd):/binwalk" binwalk:latest [binwalk options] ./firmware.bin
+$ docker run -it --rm -d --name binwalk -v "$(pwd):/binwalk" 
+$ binwalk firmware.bin
 ```

@@ -23,4 +23,4 @@ RUN git clone https://github.com/ReFirmLabs/binwalk.git /binwalk; \
 RUN apt-get clean; \
  rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["/usr/local/bin/binwalk"]
+ENTRYPOINT ["/bin/bash"]

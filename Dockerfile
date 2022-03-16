@@ -11,7 +11,10 @@ RUN apt-get update -y; \
  python3 \
  python3-pip \
  xvfb \
+ liblzo2-dev \
  git;
+
+RUN pip3 install python-lzo
 
 RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
 
@@ -19,6 +22,9 @@ RUN git clone https://github.com/ReFirmLabs/binwalk.git /binwalk; \
  cd /binwalk; \
  python setup.py install; \
  yes | ./deps.sh;
+
+RUN git clone https://github.com/jrspruitt/ubi_reader; cd ubi_reader; \
+ python setup.py install
 
 RUN apt-get clean; \
  rm -rf /var/lib/apt/lists/*
